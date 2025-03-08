@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 1.5em;
+    text-align: center;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.input-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+input {
+    flex: 1;
+    padding: 12px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+button {
+    padding: 12px 20px;
+    font-size: 1.2em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:active {
+    background-color: #0056b3;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: #fafafa;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-size: 1.1em;
+}
+
+li input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
+}
+
+/* Make it responsive */
+@media (max-width: 400px) {
+    h1 {
+        font-size: 1.2em;
+    }
+    input, button {
+        font-size: 0.9em;
+    }
+    li {
+        font-size: 1em;
+    }
+}
