@@ -1,0 +1,459 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+body {
+    margin: 0;
+    padding: 0;
+    color: #201e1e;
+    line-height: 1.6;
+    position: relative;
+    overflow-x: hidden;
+    background: #f7f7f7; /* Light mode default */
+    transition: background .3s, color 0.3s;
+}
+body.dark-mode {
+    background: #1a1a1a; /* Dark mode background */
+    color: #f7f7f7;
+}
+.mode-toggle {
+    background: none;
+    border: none;
+    color: #f1c40f; /* Sun yellow */
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.mode-toggle:hover {
+    transform: scale(1.2);
+}
+
+body.dark-mode .mode-toggle {
+    color: #ecf0f1; /* Moon silver */
+}
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Keeps it behind content */
+}
+
+.intro-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.intro-screen.hidden {
+    opacity: 0;
+    pointer-events: none;
+    display: none;
+}
+
+.typewriter {
+    color: #f7f7f7;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    border-right: 0.15em solid #e74c3c;
+    white-space: nowrap;
+}
+
+.welcome-text {
+    color: #e74c3c;
+    font-size: 1.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.welcome-text.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.ai-chatbot-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+.ai-chatbot-bubble {
+    width: 50px;
+    height: 50px;
+    background: #34495e; /* Matches your header */
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
+}
+
+.ai-chatbot-bubble:hover {
+    transform: scale(1.1);
+}
+
+.ai-chatbot-window {
+    display: none;
+    width: 320px;
+    height: 450px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    overflow: hidden;
+}
+
+.ai-chatbot-window.active {
+    display: block;
+}
+
+.ai-chatbot-header {
+    background: #34495e;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.ai-chatbot-messages {
+    height: 350px;
+    padding: 10px;
+    overflow-y: auto;
+    font-size: 0.9rem;
+}
+
+.ai-chatbot-messages p {
+    margin: 5px 0;
+}
+
+.ai-chatbot-messages .user {
+    text-align: right;
+    color: #e74c3c;
+}
+
+.ai-chatbot-messages .bot {
+    text-align: left;
+    color: #34495e;
+}
+
+.ai-chatbot-input {
+    display: flex;
+    padding: 10px;
+    background: #f7f7f7;
+}
+
+.ai-chatbot-input input {
+    flex: 1;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+}
+
+.ai-chatbot-input button {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.ai-chatbot-input button:hover {
+    background: #c0392b;
+}
+
+body.dark-mode .ai-chatbot-window {
+    background: none;
+    color: #f7f7f7;
+}
+
+body.dark-mode .ai-chatbot-header {
+    background: #1f2a44;
+}
+
+body.dark-mode .ai-chatbot-input {
+    background: #1a1a1a;
+}
+
+body.dark-mode .ai-chatbot-messages .bot {
+    color: #e74c3c;
+}
+/* Header */
+header {
+    background: linear-gradient(135deg, #34495e, #2c3e50);
+    color: white;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 2rem;
+}
+
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+}
+
+.nav-menu ul li {
+    margin-left: 2rem;
+}
+
+.nav-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-menu ul li a:hover {
+    color: #e74c3c;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Responsive Header */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    .nav-menu {
+        display: none;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #2c3e50;
+        padding: 1rem 0;
+    }
+    .nav-menu.active {
+        display: block;
+    }
+    .nav-menu ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    .nav-menu ul li {
+        margin: 1rem 0;
+    }
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.7);
+        z-index: 100;
+    }
+    
+    .modal-content {
+        background: white;
+        max-width: 600px;
+        margin: 5% auto;
+        padding: 2rem;
+        border-radius: 10px;
+        position: relative;
+        text-align: center;
+    }
+    
+    .close-modal {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 2rem;
+        cursor: pointer;
+        color: #34495e;
+    }
+    
+    .modal-image {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        margin-bottom: 1rem;
+    }
+    
+    .modal-title {
+        color: #34495e;
+        margin-bottom: 1rem;
+    }
+    
+    .modal-desc {
+        font-size: 1rem;
+    }
+    .section {
+        opacity: 0;
+        transform: translateX(-30px);
+        transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    
+    .section.visible {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+    .modal.active {
+        display: block;
+    }
+    header h1 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Rest of your existing styles (about, projects, footer) remain unchanged */
+.about {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.about h2 {
+    color: #34495e;
+    margin-bottom: 1rem;
+}
+
+.projects {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card.highlight {
+    box-shadow: 0 0 15px #e74c3c;
+    transform: scale(1.02);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-card h3 {
+    padding: 1rem;
+    color: #34495e;
+}
+
+.project-card p {
+    padding: 0 1rem 1rem;
+    font-size: 0.9rem;
+}
+
+footer {
+    background: #34495e;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+
+footer a {
+    color: #e74c3c;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+body.dark-mode header {
+    background: linear-gradient(135deg, #1f2a44, #16213e);
+}
+
+body.dark-mode .project-card {
+    background: #2c2c2c;
+}
+
+body.dark-mode .project-card h3,
+body.dark-mode .about h2 {
+    color: #e74c3c;
+}
+
+body.dark-mode footer {
+    background: #1f2a44;
+}
+
+body.dark-mode .modal-content {
+    background: #2c2c2c;
+    color: #f7f7f7;
+}
+
+body.dark-mode .close-modal {
+    color: #e74c3c;
+}
+
+body.dark-mode .modal-title {
+    color: #e74c3c;
+}
+
+@media (max-width: 600px) {
+    .projects {
+        grid-template-columns: 1fr;
+    }
+    .project-card img {
+        height: 150px;
+    }
+}
+
+  

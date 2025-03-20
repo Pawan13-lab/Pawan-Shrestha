@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="intro-screen">
+        <h1 class="typewriter"></h1>
+        <p class="welcome-text">Welcome to my website</p>
+        <h1>Hi, I am Pawan</h1>
+        <p>Welcome to my website</p>       
+    </div>
+    <header>
+        <div class="header-container">
+            <h1>Pawan Shrestha</h1>
+            
+            <button class="mode-toggle" aria-label="Toggle dark mode">☀</button>
+            <button class="menu-toggle">☰</button>
+           
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="about" id="about">
+        <h2>About Me</h2>
+        <p>Hi, I’m Pawan Shrestha. I’m passionate about building beautiful, functional things—whether it’s code, design, or something else entirely. Take a look at my work below!</p>
+    </section>
+    <section class="projects" id="projects">
+        <div class="project-card" data-id="1">
+            <img src="https://via.placeholder.com/300x200" alt="Project 1">
+            <h3>Project One</h3>
+            <p>A sleek website built with HTML and CSS. Simple, yet elegant.</p>
+        </div>
+        <div class="project-card" data-id="2">
+            <img src="https://via.placeholder.com/300x200" alt="Project 2">
+            <h3>Project Two</h3>
+            <p>An interactive app with JavaScript and a modern UI.</p>
+        </div>
+        <div class="project-card" data-id="3">
+            <img src="https://via.placeholder.com/300x200" alt="Project 3">
+            <h3>Project Three</h3>
+            <p>A creative design experiment with bold visuals.</p>
+        </div>
+    </section>
+    <footer id="contact">
+        <p>Get in touch: <a href="mailto:your.email@example.com">shresthapawan57@gmail.com</a></p>
+        <p>© 2025 Pawan Shrestha</p>
+    </footer>
+    <div class="modal" id="project-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <img src="" alt="Project Preview" class="modal-image">
+            <h3 class="modal-title"></h3>
+            <p class="modal-desc"></p>
+        </div>
+    </div>
+    <div class="ai-chatbot-widget">
+        <div class="ai-chatbot-bubble">🤖</div>
+        <div class="ai-chatbot-window" id="ai-chatbot-window">
+            <div class="ai-chatbot-header">AI Assistant</div>
+            <div class="ai-chatbot-messages" id="ai-chatbot-messages"></div>
+            <form class="ai-chatbot-input">
+                <input type="text" id="ai-chatbot-input" placeholder="Ask me anything...">
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://unpkg.com/@google/generative-ai"></script>
+    <script>
+      const genAI = new google.generativeai.GenerativeModel({ model: "gemini-pro" });
+      console.log(genAI);
+    </script>      
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>  
+</body>
+</html>
